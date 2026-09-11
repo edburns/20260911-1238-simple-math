@@ -2,7 +2,11 @@
 param(
     [Parameter(Mandatory)]
     [ValidateRange(0, [int]::MaxValue)]
-    [int] $N
+    [int] $N,
+
+    [Parameter()]
+    [ValidateSet('fibonacci', 'factorial')]
+    [string] $Operation = 'fibonacci'
 )
 
 function Get-Fibonacci {
@@ -25,7 +29,32 @@ function Get-Fibonacci {
     return $previous
 }
 
+function Get-Factorial {
+    [OutputType([System.Numerics.BigInteger])]
+    param(
+        [Parameter(Mandatory)]
+        [ValidateRange(0, [int]::MaxValue)]
+        [int] $N
+    )
+
+    $product = [System.Numerics.BigInteger]::One
+
+    for ($index = 2; $index -le $N; $index++) {
+        $product = $product * [System.Numerics.BigInteger]$index
+    }
+
+    return $product
+}
+
 if ($MyInvocation.InvocationName -ne '.') {
-    $value = Get-Fibonacci -N $N
-    Write-Output "Fibonacci($N) = $value"
+    switch ($Operation) {
+        'fibonacci' {
+            $value = Get-Fibonacci -N $N
+            Write-Output "Fibonacci($N) = $value"
+        }
+        'factorial' {
+            $value = Get-Factorial -N $N
+            Write-Output "Factorial($N) = $value"
+        }
+    }
 }
