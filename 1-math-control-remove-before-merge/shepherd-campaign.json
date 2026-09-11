@@ -1,0 +1,16 @@
+{
+  "schemaVersion": 1,
+  "campaignId": "4694ff67-c4cb-4fa8-ab55-6d644b5eb729",
+  "campaignIssueNumber": 1,
+  "campaignShortname": "math-control",
+  "repository": "edburns/20260911-1238-simple-math",
+  "baseBranch": "experiment/shepherd-control",
+  "lessonPropagation": "off",
+  "campaignMetadataDirectory": "1-math-control-remove-before-merge",
+  "lessonsFile": "campaign-lessons.md",
+  "createdBy": {
+    "shepherdTaskVersion": "1.0.3",
+    "stageOutcomeProtocolVersion": 1
+  },
+  "createdAt": "2026-09-11T19:40:14Z"
+}
